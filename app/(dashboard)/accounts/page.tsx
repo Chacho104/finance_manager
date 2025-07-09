@@ -16,10 +16,10 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 const AccountsPage = () => {
   const newAccount = useNewAccount();
-  const accounstQuery = useGetAccounts();
-  const accounts = accounstQuery.data || [];
+  const accountsQuery = useGetAccounts();
+  const accounts = accountsQuery.data || [];
 
-  if (accounstQuery.isLoading) {
+  if (accountsQuery.isLoading) {
     return (
       <div className="max-w-screen-2xl mx-auto w-full pb-10 -mt-24">
         <Card className="border-none drop-shadow-sm">
