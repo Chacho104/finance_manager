@@ -24,7 +24,6 @@ import {
 
 const formSchema = insertTransactionSchema.omit({ id: true });
 
-// @ts-expect-error
 type FormValues = z.input<typeof formSchema>;
 
 export const NewTransactionSheet = () => {

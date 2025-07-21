@@ -12,7 +12,7 @@ export const useDeleteTransaction = (id?: string) => {
   const queryClient = useQueryClient();
 
   const mutation = useMutation<ResponseType, Error>({
-    mutationFn: async (json) => {
+    mutationFn: async () => {
       const response = await client.api.transactions[":id"]["$delete"]({
         param: { id },
       });

@@ -141,7 +141,6 @@ const app = new Hono()
   .post(
     "/bulk-create",
     clerkMiddleware(),
-    // @ts-expect-error
     zValidator("json", z.array(insertTransactionSchema.omit({ id: true }))),
     async (c) => {
       const auth = getAuth(c);

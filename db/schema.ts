@@ -58,6 +58,5 @@ export const transactionsRelations = relations(transactions, ({ one }) => ({
 }));
 
 export const insertTransactionSchema = createInsertSchema(transactions, {
-  // @ts-expect-error
   date: z.coerce.date(),
 });

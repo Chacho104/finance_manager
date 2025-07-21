@@ -26,7 +26,7 @@ import {
 // Define the form schema
 
 const formSchema = z.object({
-  date: z.coerce.date(),
+  date: z.coerce.date<Date>(),
   accountId: z.string(),
   categoryId: z.string().nullable().optional(),
   payee: z.string(),
@@ -38,7 +38,6 @@ const apiSchema = insertTransactionSchema.omit({ id: true });
 
 type FormValues = z.input<typeof formSchema>;
 
-// @ts-expect-error
 type ApiFormValues = z.input<typeof apiSchema>;
 
 type Props = {
