@@ -16,7 +16,6 @@ import {
 
 const formSchema = insertCategorySchema.pick({ name: true });
 
-// @ts-expect-error
 type FormValues = z.input<typeof formSchema>;
 
 export const NewCategorySheet = () => {
