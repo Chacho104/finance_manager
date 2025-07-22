@@ -18,7 +18,6 @@ import {
 
 const formSchema = insertAccountSchema.pick({ name: true });
 
-// @ts-expect-error
 type FormValues = z.input<typeof formSchema>;
 
 type Props = {
