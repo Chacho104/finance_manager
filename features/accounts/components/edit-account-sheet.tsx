@@ -21,7 +21,6 @@ import { useConfirm } from "@/hooks/use-confirm";
 
 const formSchema = insertAccountSchema.pick({ name: true });
 
-// @ts-expect-error
 type FormValues = z.input<typeof formSchema>;
 
 export const EditAccountSheet = () => {
