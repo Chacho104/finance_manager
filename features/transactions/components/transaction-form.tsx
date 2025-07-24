@@ -116,7 +116,7 @@ export const TransactionForm = ({
                   onCreate={onCreateAccount}
                   value={field.value}
                   onChange={field.onChange}
-                  disbaled={disabled}
+                  disabled={disabled}
                 />
               </FormControl>
               <FormMessage />
@@ -136,7 +136,7 @@ export const TransactionForm = ({
                   onCreate={onCreateCategory}
                   value={field.value}
                   onChange={field.onChange}
-                  disbaled={disabled}
+                  disabled={disabled}
                 />
               </FormControl>
               <FormMessage />
