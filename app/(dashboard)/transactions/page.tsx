@@ -78,6 +78,9 @@ const TransactionsPage = () => {
       onSuccess: () => {
         onCancelImport();
       },
+      onError: () => {
+        toast.error("Failed to create transactions. Please try again.");
+      },
     });
   };
 

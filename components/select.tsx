@@ -8,7 +8,7 @@ type Props = {
   onCreate?: (value: string) => void;
   options?: { label: string; value: string }[];
   value?: string | null | undefined;
-  disbaled: boolean;
+  disabled: boolean;
   placeholder?: string;
 };
 
@@ -17,7 +17,7 @@ export const Select = ({
   onCreate,
   options = [],
   value,
-  disbaled,
+  disabled,
   placeholder,
 }: Props) => {
   const onSelect = (option: SingleValue<{ label: string; value: string }>) => {
@@ -45,7 +45,7 @@ export const Select = ({
       onChange={onSelect}
       options={options}
       onCreateOption={onCreate}
-      isDisabled={disbaled}
+      isDisabled={disabled}
     />
   );
 };

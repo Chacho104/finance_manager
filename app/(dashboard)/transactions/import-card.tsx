@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { toast } from "sonner";
+
 import { convertAmountToMiliUnits } from "@/lib/utils";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -90,11 +92,25 @@ export const ImportCard = ({ data, onCancel, onSubmit }: Props) => {
 
     const formattedData = arrayOfData.map((item) => ({
       ...item,
-      amount: convertAmountToMiliUnits(parseFloat(item.amount)),
-      date: format(parse(item.date, dateFormat, new Date()), outputFormat),
+      amount: item.amount
+        ? convertAmountToMiliUnits(parseFloat(item.amount) || 0)
+        : 0,
+      date: item.date
+        ? format(parse(item.date, dateFormat, new Date()), outputFormat)
+        : null,
     }));
 
-    onSubmit(formattedData);
+    // Filter out invalid entries
+    const validData = formattedData.filter(
+      (item) => item.amount !== 0 && item.date && item.payee
+    );
+
+    if (validData.length === 0) {
+      toast.error("No valid transactions found in the imported data.");
+      return;
+    }
+
+    onSubmit(validData);
   };
 
   return (
