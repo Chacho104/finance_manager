@@ -36,7 +36,7 @@ export const useSelectAccount = (): [
     resolve: (value: string | undefined) => void;
   } | null>(null);
 
-  const selectValue = useRef<string | undefined>("");
+  const selectValue = useRef<string | undefined>(undefined);
 
   const confirm = () =>
     new Promise((resolve) => {
@@ -71,7 +71,7 @@ export const useSelectAccount = (): [
           options={accountOptions}
           onCreate={onCreateAccount}
           onChange={(value) => (selectValue.current = value)}
-          disbaled={accountQuery.isLoading || accountMutation.isPending}
+          disabled={accountQuery.isLoading || accountMutation.isPending}
         />
         <DialogFooter className="pt-2">
           <Button onClick={handleCancel} variant="outline">
